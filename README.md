@@ -1,64 +1,51 @@
-## Background & Objectives
+## Create a new project
 
-Use advanced CSS selectors (id, class, grouping, descendant selectors) to fine-tune your page with a more subtle design.
+Let's create a new project for your profile page (you are not going to keep it under in the `fullstack-challenges` folder).
 
-## Specs
-
-Here is [your objective](http://lewagon.github.io/html-css-challenges/04-advanced-selectors/). Any time you want to **name** an element of your page, ask yourself:
-
-- Should I use a `class` or an `id`? Is it unique or re-usable?
-- What name should I pick for my class? Respect the `component-shape` convention/
-- Should I split this design into several classes instead of one big class?
-
-Here is an example of **bad** CSS code:
-
-```css
-#home-page-first-image {
-  border-radius: 50%;
-}
-.home-card{
-  text-align: center;
-  background: white;
-  padding: 30px;
-  border: 1px solid lightgrey;
-}
+```
+$ cd ~/code/<user.github_nickname>
+$ mkdir profile
 ```
 
-And here is the **good version** of it
+Copy and paste your `index.html`, `style.css` files and `images` folder in this new `profile` folder.
 
-```css
-.img-circle {
-  border-radius: 50%;
-}
-.text-center{
-  text-align: center;
-}
-.card-white {
-  background: white;
-  padding: 30px;
-  border: 1px solid lightgrey;
-}
+## Create the Github repo
+
+Let's install the `hub` gem to create a Github repo from your terminal without opening your browser
+
+```
+$ gem install hub
 ```
 
-- Making an image circle and centering texts are **very common design tasks**. They deserve their own re-usable class, not to be mixed in other classes or ids!
+Now you can init a git repo, commit your changes, and create the associated Github repo.
 
-- Don't repeat yourself and try to use **generic class names**. Consider each CSS class as a re-usable design that you can apply everywhere on your website. Getting this mindset is the main difficulty for CSS beginners.
-
-## Further suggestions & resources (inlining a list)
-
-To design your lists of icons, you'll have to change the `block` behavior of list items by **inlining them**. Here is the corresponding CSS rules.
-
-```css
-.list-inline > li {
-  display: inline-block;
-  padding: 0px 20px;
-}
+```
+$ cd ~/code/<user.github_nickname>/profile
+$ git init
+$ git add .
+$ git commit -m "my profile page"
+$ hub create
 ```
 
-Even inline, a list `<ul>` has some `padding-left` that you must also kill to perfectly center your list.
+To open the Github repo in your browser you can run:
 
-```css
-.list-inline {
-  padding-left: 0px;
-}
+```
+$ hub browse
+```
+
+## Github Pages
+
+[Github Pages](https://pages.github.com/) is a sub-service of Github, very convenient to deploy any **static website** in 10 seconds (static == not a Rails app). It is based on a "magic" branch, called `gh-pages`. When Github detects this branch, it puts your website online, how cool! Let's create this magic branch and push it.
+
+```
+$ git co -b gh-pages
+$ git push origin gh-pages
+```
+
+Now you can build the URL `http://<user.github_nickname>.github.io/profile` and have a look at your masterpiece, it's online! Share it on Slack with your buddies.
+
+From now and until the end of the day, keep working in your `~/code/<user.github_nickname>/profile` directory AND on the `gh-pages` branch. Thus, any updates of your profile page could be pushed on `http://<user.github_nickname>.github.io/profile` throw the command line
+
+```
+$ git push origin gh-pages
 ```
